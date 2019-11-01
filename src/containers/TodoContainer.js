@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { createTodo } from "../modules/todos";
 import "./TodoContainer.css";
-
 import TodoItem from "./TodoItem";
 
 const TodoContainer = () => {
@@ -34,7 +33,7 @@ const TodoContainer = () => {
       </form>
       <ul>
         {todos.map(item => (
-          <TodoItem item={item} key={item.id} />
+          <TodoItem key={item.id} item={item} />
         ))}
       </ul>
     </>

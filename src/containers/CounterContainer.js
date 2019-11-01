@@ -5,7 +5,9 @@ import Counter from "../components/Counter";
 import { increment, decrement } from "../modules/counter";
 
 const CounterContainer = () => {
-  const count = useSelector(state => state.counter.count);
+  const count = useSelector(state => {
+    return state.counter.count;
+  });
   const dispatch = useDispatch();
 
   const incrementCounter = () => {

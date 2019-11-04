@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { createTodo } from "../modules/todos";
+import { createTodo, deleteTodo, toggleTodo } from "../modules/todos";
 import "./TodoContainer.css";
 import TodoItem from "./TodoItem";
 
@@ -21,8 +21,15 @@ const TodoContainer = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    addTodo(value);
+    addTodo();
     setValue("");
+  };
+
+  const removeTodo = id => {
+    dispatch(deleteTodo(id));
+  };
+  const onToggle = id => {
+    dispatch(toggleTodo(id));
   };
 
   return (
@@ -33,7 +40,12 @@ const TodoContainer = () => {
       </form>
       <ul>
         {todos.map(item => (
-          <TodoItem key={item.id} item={item} />
+          <TodoItem
+            key={item.id}
+            item={item}
+            removeTodo={removeTodo}
+            onToggle={onToggle}
+          />
         ))}
       </ul>
     </>

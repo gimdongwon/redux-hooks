@@ -2,19 +2,19 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Counter from "../components/Counter";
-import { increment, decrement } from "../modules/counter";
+import { incrementAsync, decrementAsync } from "../modules/counter";
 
 const CounterContainer = () => {
   const count = useSelector(state => {
-    return state.counter.count;
+    return state.counter;
   });
   const dispatch = useDispatch();
 
   const incrementCounter = () => {
-    dispatch(increment());
+    dispatch(incrementAsync());
   };
   const decrementCounter = () => {
-    dispatch(decrement());
+    dispatch(decrementAsync());
   };
   return (
     <Counter

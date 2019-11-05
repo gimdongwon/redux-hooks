@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { createTodo, deleteTodo, toggleTodo } from "../modules/todos";
+import {
+  createTodoAsync,
+  deleteTodoAsync,
+  toggleTodoAsync
+} from "../modules/todos";
 import "./TodoContainer.css";
 import TodoItem from "./TodoItem";
 
@@ -9,12 +13,12 @@ const TodoContainer = () => {
   const [value, setValue] = useState("");
 
   const todos = useSelector(state => state.todos);
+
   const dispatch = useDispatch();
 
   const addTodo = () => {
-    dispatch(createTodo(value));
+    dispatch(createTodoAsync(value));
   };
-
   const onChange = e => {
     setValue(e.target.value);
   };
@@ -26,12 +30,11 @@ const TodoContainer = () => {
   };
 
   const removeTodo = id => {
-    dispatch(deleteTodo(id));
+    dispatch(deleteTodoAsync(id));
   };
   const onToggle = id => {
-    dispatch(toggleTodo(id));
+    dispatch(toggleTodoAsync(id));
   };
-
   return (
     <>
       <form onSubmit={onSubmit}>

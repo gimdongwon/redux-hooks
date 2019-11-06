@@ -3,6 +3,8 @@ import { call, delay, put, takeEvery } from "redux-saga/effects";
 
 // call : 첫 번째 파라미터로 전달한 함수에 그 뒤에 있는 파라미터들은 전달하여 호출해준다.
 // 이를 사용하면 나중에 테스트를 작성할 때 용이하게 사용된다.
+// put은 우리가 이펙트라고 부르는 예중 하나다.
+// 이펙트는 미들웨어에 의해 수행되는 명령을 담고 있는 간단한 객체이다.
 
 const CREATE = "todos/CREATE";
 const DELETE = "todos/DELETE";
